@@ -1,0 +1,522 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Contenido principal */
+.main {
+    padding: 30px 0;
+    min-height: calc(100vh - 200px);
+}
+
+/* Secciones */
+.register-section,
+.seeds-list-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.register-section h2,
+.seeds-list-section h2 {
+    color: #4CAF50;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+/* Formulario */
+.seed-form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Botones */
+.btn-primary {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Lista de semillas */
+.seeds-container {
+    display: grid;
+    gap: 20px;
+}
+
+.empty-message {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+/* Card de semilla */
+.seed-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border-left: 5px solid #4CAF50;
+}
+
+.seed-card:hover {
+    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
+
+.seed-card h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.seed-info {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.seed-info p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.seed-info strong {
+    color: #333;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-disponible {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-no-disponible {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* Estilos para modo offline */
+.offline-mode .header {
+    background: linear-gradient(135deg, #777, #555);
+}
+
+.offline-mode .register-section h2,
+.offline-mode .seeds-list-section h2 {
+    color: #666;
+    border-bottom-color: #666;
+}
+
+.offline-mode .btn-primary {
+    background: linear-gradient(135deg, #777, #555);
+}
+
+/* Estilos para los mensajes de conectividad */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Animaciones sutiles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.seed-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Correcciones específicas para inputs en móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .logo {
+        font-size: 2rem;
+    }
+    
+    .register-section,
+    .seeds-list-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .main {
+        padding: 20px 0;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    /* Forzar inputs nativos en móviles */
+    input, select, textarea {
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        border: 2px solid #4CAF50 !important;
+        background-color: #fff !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        user-select: auto !important;
+        -webkit-user-select: auto !important;
+        touch-action: auto !important;
+    }
+    
+    /* Mejorar visibilidad del foco */
+    input:focus, select:focus, textarea:focus {
+        border-color: #ff9800 !important;
+        box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.5) !important;
+        outline: none !important;
+    }
+    
+    /* Añadir marco más visible */
+    .form-group {
+        position: relative;
+        margin-bottom: 20px !important;
+    }
+    
+    /* Mejorar tamaño tap de elementos */
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        color: #333;
+    }
+    
+    /* Mejoras de accesibilidad táctil */
+    button, 
+    select,
+    input[type="submit"] {
+        min-height: 48px !important;
+    }
+    
+    /* Arreglos para teclado virtual */
+    body.keyboard-open {
+        height: auto !important;
+        overflow: visible !important;
+        position: static !important;
+    }
+}
+
+/* Corrección definitiva para inputs en PWA offline */
+input, select, textarea {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-color: white !important;
+    border: 2px solid #4CAF50 !important;
+    border-radius: 8px !important;
+    color: #333 !important;
+    font-size: 16px !important;
+    padding: 12px 15px !important;
+    width: 100% !important;
+    min-height: 44px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    outline: none !important;
+    pointer-events: auto !important;
+    user-select: auto !important;
+    -webkit-user-select: auto !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    touch-action: manipulation !important;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ff9800 !important;
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.3) !important;
+}
+
+/* Mejorar accesibilidad táctil en modo offline */
+.offline-mode input,
+.offline-mode select,
+.offline-mode textarea,
+.offline-mode button {
+    pointer-events: auto !important;
+    cursor: text !important;
+    font-weight: normal !important;
+    transform: translateZ(0) !important;
+}
+
+/* Botón de input visible permanentemente en modo offline */
+.offline-input-helper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #ff9800;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 9999;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: none;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; border: 0;
+  padding: 0; clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Búsqueda */
+.search-section {
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #ff9800;
+  box-shadow: 0 0 0 3px rgba(255,152,0,0.2);
+}
+
+/* Filtros */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-section select {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 0.3s;
+}
+
+.filter-section select:focus {
+  outline: none;
+  border-color: #ff9800;
+  box-shadow: 0 0 0 3px rgba(255,152,0,0.2);
+}
+
+/* Estilos para el botón de eliminación */
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: color 0.2s;
+}
+
+.delete-btn:hover {
+  color: #c0392b;
+}
+
+/* Estilos para el botón de editar */
+.edit-btn {
+  background: transparent;
+  border: none;
+  color: #2980b9;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 8px;
+  transition: color 0.2s;
+}
+
+.edit-btn:hover {
+  color: #1f6391;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarpu Yachay - Intercambio de Semillas</title>
+    <meta name="description" content="Aplicación comunitaria para intercambio solidario de semillas nativas">
+    
+    <!-- Etiquetas meta para PWA (corregidas) -->
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TarpuYachay">
+    
+    <!-- Iconos para iOS -->
+    <link rel="apple-touch-icon" href="https://img.icons8.com/ios-filled/180/4CAF50/leaf.png">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/32/4CAF50/leaf.png">
+    
+    <!-- CSS y manifest -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+    
+    <!-- Región para mensajes ARIA-live -->
+    <div id="live-region" class="sr-only" aria-live="polite"></div>
+    
+    <!-- Header de la aplicación -->
+    <header class="header" role="banner">
+        <div class="container">
+            <h1 class="logo">🌱 Tarpu Yachay</h1>
+            <p class="subtitle">Intercambio Comunitario de Semillas</p>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="main-content" class="main" role="main">
+        <div class="container">
+            
+            <!-- Sección de búsqueda -->
+            <section class="search-section">
+              <label for="searchInput" class="sr-only">Buscar semillas</label>
+              <input type="text" id="searchInput" placeholder="🔍 Buscar por nombre, tipo o propietario">
+            </section>
+            
+            <!-- Sección de filtros -->
+            <section class="filter-section">
+              <label for="filterType" class="sr-only">Filtrar por tipo</label>
+              <select id="filterType">
+                <option value="">Todos los tipos</option>
+                <option value="cereales">Cereales</option>
+                <option value="legumbres">Legumbres</option>
+                <option value="hortalizas">Hortalizas</option>
+                <option value="frutas">Frutas</option>
+                <option value="hierbas">Hierbas aromáticas</option>
+                <option value="otros">Otros</option>
+              </select>
+
+              <label for="filterStatus" class="sr-only">Filtrar por estado</label>
+              <select id="filterStatus">
+                <option value="">Todos los estados</option>
+                <option value="disponible">Disponible</option>
+                <option value="no-disponible">No disponible</option>
+              </select>
+            </section>
+            
+            <!-- Sección: Registrar nueva semilla -->
+            <section class="register-section">
+                <h2>📝 Registrar Semilla</h2>
+                <form id="seedForm" class="seed-form">
+                    <div class="form-group">
+                        <label for="seedName">Nombre de la semilla *</label>
+                        <input type="text" id="seedName" name="seedName" required 
+                               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                               placeholder="Ej: Maíz amarillo, Frijol negro">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seedType">Tipo de semilla *</label>
+                        <select id="seedType" name="seedType" required>
+                            <option value="">Seleccionar tipo</option>
+                            <option value="cereales">Cereales</option>
+                            <option value="legumbres">Legumbres</option>
+                            <option value="hortalizas">Hortalizas</option>
+                            <option value="frutas">Frutas</option>
+                            <option value="hierbas">Hierbas aromáticas</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ownerName">Tu nombre *</label>
+                        <input type="text" id="ownerName" name="ownerName" required 
+                               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                               placeholder="Nombre del propietario">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Ubicación</label>
+                        <input type="text" id="location" name="location" 
+                               placeholder="Sector, barrio o referencia">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Cantidad disponible</label>
+                        <input type="text" id="quantity" name="quantity" 
+                               placeholder="Ej: 1 libra, 100 gramos, 20 semillas">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descripción adicional</label>
+                        <textarea id="description" name="description" rows="3" 
+                                  placeholder="Características especiales, época de siembra, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Estado *</label>
+                        <select id="status" name="status" required>
+                            <option value="disponible">Disponible para intercambio</option>
+                            <option value="no-disponible">No disponible</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary">💾 Guardar Semilla</button>
+                </form>
+            </section>
+
+            <!-- Sección: Lista de semillas registradas -->
+            <section class="seeds-list-section">
+                <h2>🌾 Semillas Disponibles</h2>
+                <div id="seedsList" class="seeds-container">
+                    <!-- Las semillas se mostrarán aquí dinámicamente -->
+                    <p class="empty-message">No hay semillas registradas aún. ¡Sé el primero en compartir!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>🌱 Tarpu Yachay - Proyecto comunitario sin fines de lucro</p>
+            <p>Tecnología apropiada para comunidades rurales</p>
+        </div>
+    </footer>
+
+    <!-- Botón de emergencia para activar teclado -->
+    <button id="keyboardTrigger" class="keyboard-trigger" aria-label="Activar teclado">⌨️</button>
+    
+    <!-- Scripts -->
+    <script defer src="./js/db.js"></script>
+    <script defer src="./js/main.js"></script>
+</body>
+</html>

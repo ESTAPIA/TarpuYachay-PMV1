@@ -1,0 +1,48 @@
+{
+  "name": "Tarpu Yachay - Intercambio Comunitario de Semillas",
+  "short_name": "TarpuYachay",
+  "description": "PWA para intercambio solidario de semillas nativas",
+  "start_url": "./index.html?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay"
+  ],
+  "background_color": "#f8f9fa",
+  "theme_color": "#4CAF50",
+  "orientation": "portrait",
+  "categories": [
+    "utilities",
+    "productivity"
+  ],
+  "id": "/index.html",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/128/628/628324.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/628/628324.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://cdn.pixabay.com/photo/2017/05/11/11/15/workplace-2303851_960_720.jpg",
+      "sizes": "960x720",
+      "type": "image/jpg",
+      "form_factor": "wide"
+    },
+    {
+      "src": "https://cdn.pixabay.com/photo/2020/01/26/21/57/mobile-phone-4796217_960_720.jpg",
+      "sizes": "720x960",
+      "type": "image/jpg",
+      "form_factor": "narrow"
+    }
+  ]
+}

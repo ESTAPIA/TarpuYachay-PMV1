@@ -1,0 +1,19 @@
+# Node modules y gestor de paquetes
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# VS Code
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Live Server / Servidores locales
+dist/
+build/
+.cache/
+
+# Archivos de log
+*.log
