@@ -1,48 +1,57 @@
 {
-  "name": "Tarpu Yachay - Intercambio Comunitario de Semillas",
-  "short_name": "TarpuYachay",
-  "description": "PWA para intercambio solidario de semillas nativas",
-  "start_url": "./index.html?source=pwa",
+  "name": "Tarpu Yachay - Intercambio de Semillas Chigchilán",
+  "short_name": "Tarpu Yachay",
+  "description": "Aplicación PWA para intercambio de semillas tradicionales en Chigchilán, Cotopaxi",
+  "version": "1.0.0",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "display_override": [
-    "standalone",
-    "window-controls-overlay"
-  ],
-  "background_color": "#f8f9fa",
-  "theme_color": "#4CAF50",
-  "orientation": "portrait",
-  "categories": [
-    "utilities",
-    "productivity"
-  ],
-  "id": "/index.html",
+  "orientation": "portrait-primary",
+  "theme_color": "#2E7D32",
+  "background_color": "#E8F5E8",
+  "lang": "es-EC",
+  
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/128/628/628324.png",
-      "sizes": "128x128",
-      "type": "image/png",
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjcyIiBoZWlnaHQ9IjcyIiBmaWxsPSIjMkU3RDMyIiByeD0iMTAiLz4KPHN2ZyB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+Cjx0ZXh0IHg9IjE2IiB5PSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSI+8J+MsTwvdGV4dD4KPC9zdmc+Cjwvc3ZnPgo=",
+      "sizes": "72x72",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/628/628324.png",
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjMkU3RDMyIiByeD0iMjAiLz4KPHN2ZyB4PSI2MCIgeT0iNjAiIHdpZHRoPSI3MiIgaGVpZ2h0PSI3MiI+Cjx0ZXh0IHg9IjM2IiB5PSI0OCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQ4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSI+8J+MsTwvdGV4dD4KPC9zdmc+Cjwvc3ZnPgo=",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSIjMkU3RDMyIiByeD0iNTAiLz4KPHN2ZyB4PSIxNTAiIHk9IjE1MCIgd2lkdGg9IjIxMiIgaGVpZ2h0PSIyMTIiPgo8dGV4dCB4PSIxMDYiIHk9IjE0MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiPvCfjLE8L3RleHQ+CjwvdGV4dD4KPHRleHQgeD0iMTA2IiB5PSIxODAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIzMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiPlRhcnB1IFlhY2hheTwvdGV4dD4KPC9zdmc+Cjwvc3ZnPgo=",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
-  "screenshots": [
+  
+  "categories": ["education", "social", "utilities", "productivity"],
+  "screenshots": [],
+  
+  "prefer_related_applications": false,
+  "related_applications": [],
+  
+  "protocol_handlers": [],
+  "shortcuts": [
     {
-      "src": "https://cdn.pixabay.com/photo/2017/05/11/11/15/workplace-2303851_960_720.jpg",
-      "sizes": "960x720",
-      "type": "image/jpg",
-      "form_factor": "wide"
-    },
-    {
-      "src": "https://cdn.pixabay.com/photo/2020/01/26/21/57/mobile-phone-4796217_960_720.jpg",
-      "sizes": "720x960",
-      "type": "image/jpg",
-      "form_factor": "narrow"
+      "name": "Registrar Semilla",
+      "short_name": "Registrar",
+      "description": "Registrar nueva semilla para intercambio",
+      "url": "./?action=register",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiBmaWxsPSIjNENBRjUwIiByeD0iMTAiLz4KPHN2ZyB4PSIzMiIgeT0iMzIiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+Cjx0ZXh0IHg9IjE2IiB5PSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSI+KzwvdGV4dD4KPC9zdmc+Cjwvc3ZnPgo=",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ]
 }

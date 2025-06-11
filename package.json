@@ -1,0 +1,13 @@
+{
+  "name": "tarpu-yachay",
+  "version": "1.0.0",
+  "description": "PWA para intercambio de semillas en Chugchilán",
+  "main": "server-simple.js",
+  "scripts": {
+    "start": "node server-simple.js",
+    "demo": "node server-simple.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

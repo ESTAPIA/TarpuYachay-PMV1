@@ -3,156 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarpu Yachay - Intercambio de Semillas</title>
-    <meta name="description" content="Aplicación comunitaria para intercambio solidario de semillas nativas">
+    <meta name="theme-color" content="#2E7D32">
+    <title>Tarpu Yachay - Chugchilán</title>
     
-    <!-- Etiquetas meta para PWA (corregidas) -->
-    <meta name="theme-color" content="#4CAF50">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="TarpuYachay">
-    
-    <!-- Iconos para iOS -->
-    <link rel="apple-touch-icon" href="https://img.icons8.com/ios-filled/180/4CAF50/leaf.png">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/32/4CAF50/leaf.png">
-    
-    <!-- CSS y manifest -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- PWA Configuration -->
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+    
+    <!-- Apple Touch Icons para iOS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/icon-152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/icon-120.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/app.js" as="script">
+    
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Skip link -->
-    <a href="#main-content" class="skip-link">Saltar al contenido</a>
-    
-    <!-- Región para mensajes ARIA-live -->
-    <div id="live-region" class="sr-only" aria-live="polite"></div>
-    
-    <!-- Header de la aplicación -->
-    <header class="header" role="banner">
-        <div class="container">
-            <h1 class="logo">🌱 Tarpu Yachay</h1>
-            <p class="subtitle">Intercambio Comunitario de Semillas</p>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-content">
+            <img src="assets/icons/seed-icon.svg" alt="Cargando..." class="loading-icon">
+            <h2>Tarpu Yachay</h2>
+            <p>Cargando...</p>
+            <div class="loading-spinner"></div>
         </div>
-    </header>
+    </div>
 
-    <!-- Contenido principal -->
-    <main id="main-content" class="main" role="main">
-        <div class="container">
-            
-            <!-- Sección de búsqueda -->
-            <section class="search-section">
-              <label for="searchInput" class="sr-only">Buscar semillas</label>
-              <input type="text" id="searchInput" placeholder="🔍 Buscar por nombre, tipo o propietario">
-            </section>
-            
-            <!-- Sección de filtros -->
-            <section class="filter-section">
-              <label for="filterType" class="sr-only">Filtrar por tipo</label>
-              <select id="filterType">
-                <option value="">Todos los tipos</option>
-                <option value="cereales">Cereales</option>
-                <option value="legumbres">Legumbres</option>
-                <option value="hortalizas">Hortalizas</option>
-                <option value="frutas">Frutas</option>
-                <option value="hierbas">Hierbas aromáticas</option>
-                <option value="otros">Otros</option>
-              </select>
+    <!-- Main App Container -->
+    <div id="app" class="app-container hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🌱 Tarpu Yachay</h1>
+            <p>Intercambio de Semillas - Chugchilán</p>
+        </header>
 
-              <label for="filterStatus" class="sr-only">Filtrar por estado</label>
-              <select id="filterStatus">
-                <option value="">Todos los estados</option>
-                <option value="disponible">Disponible</option>
-                <option value="no-disponible">No disponible</option>
-              </select>
-            </section>
-            
-            <!-- Sección: Registrar nueva semilla -->
-            <section class="register-section">
-                <h2>📝 Registrar Semilla</h2>
-                <form id="seedForm" class="seed-form">
-                    <div class="form-group">
-                        <label for="seedName">Nombre de la semilla *</label>
-                        <input type="text" id="seedName" name="seedName" required 
-                               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                               placeholder="Ej: Maíz amarillo, Frijol negro">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="seedType">Tipo de semilla *</label>
-                        <select id="seedType" name="seedType" required>
-                            <option value="">Seleccionar tipo</option>
-                            <option value="cereales">Cereales</option>
-                            <option value="legumbres">Legumbres</option>
-                            <option value="hortalizas">Hortalizas</option>
-                            <option value="frutas">Frutas</option>
-                            <option value="hierbas">Hierbas aromáticas</option>
-                            <option value="otros">Otros</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ownerName">Tu nombre *</label>
-                        <input type="text" id="ownerName" name="ownerName" required 
-                               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                               placeholder="Nombre del propietario">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="location">Ubicación</label>
-                        <input type="text" id="location" name="location" 
-                               placeholder="Sector, barrio o referencia">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="quantity">Cantidad disponible</label>
-                        <input type="text" id="quantity" name="quantity" 
-                               placeholder="Ej: 1 libra, 100 gramos, 20 semillas">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Descripción adicional</label>
-                        <textarea id="description" name="description" rows="3" 
-                                  placeholder="Características especiales, época de siembra, etc."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="status">Estado *</label>
-                        <select id="status" name="status" required>
-                            <option value="disponible">Disponible para intercambio</option>
-                            <option value="no-disponible">No disponible</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-primary">💾 Guardar Semilla</button>
-                </form>
-            </section>
-
-            <!-- Sección: Lista de semillas registradas -->
-            <section class="seeds-list-section">
-                <h2>🌾 Semillas Disponibles</h2>
-                <div id="seedsList" class="seeds-container">
-                    <!-- Las semillas se mostrarán aquí dinámicamente -->
-                    <p class="empty-message">No hay semillas registradas aún. ¡Sé el primero en compartir!</p>
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="screen active">
+                <div class="welcome-content">
+                    <div class="welcome-icon">🌽🫘🥔</div>
+                    <h2>¡Tarikumuy!</h2>
+                    <p class="welcome-text">
+                        Bienvenido al intercambio de semillas de Chugchilán.<br>
+                        Comparte tus semillas con la comunidad.
+                    </p>
+                    <button id="start-button" class="btn-primary btn-large">
+                        <span class="btn-icon">🌱</span>
+                        Registrar Semilla
+                    </button>
+                    <button id="view-seeds-button" class="btn-secondary btn-large">
+                        <span class="btn-icon">👀</span>
+                        Ver Semillas Disponibles
+                    </button>
                 </div>
-            </section>
-        </div>
-    </main>
+            </div>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <p>🌱 Tarpu Yachay - Proyecto comunitario sin fines de lucro</p>
-            <p>Tecnología apropiada para comunidades rurales</p>
-        </div>
-    </footer>
+            <!-- Form Wizard Container -->
+            <div id="form-wizard" class="screen form-wizard">
+                <!-- Progress Indicator -->
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Identificar</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Ubicación</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Detalles</span>
+                    </div>
+                </div>
 
-    <!-- Botón de emergencia para activar teclado -->
-    <button id="keyboardTrigger" class="keyboard-trigger" aria-label="Activar teclado">⌨️</button>
-    
+                <!-- Form Steps Container -->
+                <div id="form-steps" class="form-steps">
+                    <!-- Steps will be dynamically loaded here -->
+                </div>
+
+                <!-- Navigation -->
+                <div class="form-navigation">
+                    <button id="prev-button" class="btn-secondary" disabled>
+                        ← Anterior
+                    </button>
+                    <button id="next-button" class="btn-primary">
+                        Siguiente →
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Chugchilán - Cotopaxi 🏔️</p>
+        </footer>
+    </div>
+
+    <!-- Modals and Overlays -->
+    <div id="camera-modal" class="modal hidden">
+        <!-- Camera interface will be here -->
+    </div>
+
+    <div id="audio-modal" class="modal hidden">
+        <!-- Audio recording interface will be here -->
+    </div>
+
     <!-- Scripts -->
-    <script defer src="./js/db.js"></script>
-    <script defer src="./js/main.js"></script>
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/validation.js"></script>
+    <script src="js/components/wizard.js"></script>
+    <script src="js/app.js"></script>
+    
+    <!-- Testing script (solo para development) -->
+    <script src="js/test-quick.js"></script>
 </body>
 </html>

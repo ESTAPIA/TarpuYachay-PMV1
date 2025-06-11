@@ -1,32 +1,61 @@
-name: Deploy to GitHub Pages
+name: Deploy Tarpu Yachay PWA to GitHub Pages
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch: # Permite ejecutar manualmente
 
-# Dar permisos de escritura a Pages y a los contenidos
+# Permisos necesarios para GitHub Pages
 permissions:
-  contents: write
+  contents: read
   pages: write
+  id-token: write
+
+# Solo un deployment a la vez
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  # Job para construir el sitio
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js (opcional si no haces build)
-        uses: actions/setup-node@v3
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
 
-      # ...existing code... (si tuvieras pasos de build, aquí irían)
+      - name: 📦 Install dependencies (si las hay)
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+          else
+            echo "No package.json found, skipping npm install"
+          fi
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 🏗️ Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: 📋 Validate PWA files
+        run: |
+          echo "🔍 Validating PWA structure..."
+          if [ ! -f "index.html" ]; then
+            echo "❌ index.html not found"
+            exit 1
+          fi
+          if [ ! -f "manifest.json" ]; then
+            echo "❌ manifest.json not found"
+            exit 1
+          fi
+          echo "✅ PWA files validated"
+
+      - name: 📤 Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages   # crea/usa la rama gh-pages
-          publish_dir: ./             # carpeta raíz del sitio
+          path: '.'
